@@ -1,8 +1,10 @@
 <p>posts works!</p>
 
-
-<ul>
-    <li *ngFor="let item of filteredPosts">
-        {{item.kind_animal}}
-    </li>
-</ul>
+<div class="gallery">
+    <div *ngFor="let item of filteredPosts" class="image-container">
+        <a routerLink="/chats">
+            <div class="image" style="background-image: url('{{item.images[0]}}')">
+            </div>
+        </a>
+    </div>
+</div>
