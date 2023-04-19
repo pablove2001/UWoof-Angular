@@ -13,6 +13,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { FooterComponent } from './layouts/footer/footer.component';
 import { TopBarComponent } from './layouts/top-bar/top-bar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { TopBarComponent } from './layouts/top-bar/top-bar.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

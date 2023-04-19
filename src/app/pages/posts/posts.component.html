@@ -1,4 +1,39 @@
-<p>posts works!</p>
+<form class="form-container">
+    <div class="scroll-x-auto">
+        <div class="form-group">
+            <select id="species" name="species">
+                <option value="">Select species...</option>
+                <option value="dog">Dog</option>
+                <option value="cat">Cat</option>
+                <option value="bird">Bird</option>
+                <option value="rabbit">Rabbit</option>
+                <option value="hamster">Hamster</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <select id="vaccinated" name="vaccinated">
+                <option value="">Select vaccinated...</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+        </div>
+
+        <div class="">
+            <select id="castrated" name="castrated">
+                <option value="">Select castrated...</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+        </div>
+    </div>
+
+
+    <div class="margin-left">
+        <button type="button" id="search-button">Search</button>
+    </div>
+</form>
+
 
 <div class="gallery">
     <div *ngFor="let item of filteredPosts" class="image-container">
