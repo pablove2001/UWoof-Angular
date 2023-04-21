@@ -21,11 +21,17 @@ ul {
 /* Chat Styles */
 
 .chat-container {
+    position: absolute;
+    top: 55px;
+    left: 0;
+    right: 0;
     display: flex;
-    height: 100vh;
+    height: calc(100% - 55px);
+    background-color: white;
 }
 
 .chat-header {
+    height: 68px;
     display: flex;
     align-items: center;
     padding: 10px;
@@ -42,9 +48,10 @@ ul {
 }
 
 .chat-messages {
-    flex: 1;
+    // flex: 1;
     overflow-y: scroll;
     padding: 10px;
+    height: calc(100% - 126px);
 }
 
 .chat-messages ul {
@@ -55,7 +62,7 @@ ul {
 .message {
     display: flex;
     flex-direction: column;
-    margin-bottom: 10px;
+    margin-bottom: 0;
 }
 
 .message p {
@@ -71,25 +78,30 @@ ul {
 }
 
 .sent p {
-    align-self: flex-end;
     background-color: #efefef;
     color: #000;
+}
+
+.sent {
+    align-items: flex-end;
 }
 
 .message-meta {
     font-size: 12px;
     color: #888;
-    margin-top: 5px;
 }
 
 .chat-form {
-    flex: 0 0 auto;
+    height: 58px;
+    // flex: 0 0 auto;
     padding: 10px;
     display: flex;
+
 }
 
 .chat-form input[type="text"] {
-    flex: 1;
+    // flex: 1;
+    width: 100%;
     padding: 10px;
     font-size: 14px;
     border: none;
@@ -98,6 +110,7 @@ ul {
 }
 
 .chat-form button {
+    width: 100px;
     padding: 10px 20px;
     background-color: #007bff;
     color: #fff;
@@ -134,4 +147,12 @@ ul {
     font-size: 12px;
     color: #888;
     margin: 0;
+}
+
+p {
+    margin: 0;
+}
+
+li {
+    margin: 10px 0;
 }
