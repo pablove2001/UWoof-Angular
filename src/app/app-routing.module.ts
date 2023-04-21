@@ -7,10 +7,12 @@ import { LoginComponent } from './pages/login/login.component';
 import { PostsComponent } from './pages/posts/posts.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
+import { SinglePostComponent } from './pages/single-post/single-post.component';
 
 const routes: Routes = [
   { path: 'chats', component: ChatsComponent },
   { path: 'create-post', component: CreatePostComponent },
+  { path: 'posts/:id', component: SinglePostComponent },
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'posts', component: PostsComponent },

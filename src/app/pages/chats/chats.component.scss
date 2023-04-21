@@ -1,0 +1,158 @@
+/* Global Styles */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Chat Styles */
+
+.chat-container {
+    position: absolute;
+    top: 55px;
+    left: 0;
+    right: 0;
+    display: flex;
+    height: calc(100% - 55px);
+    background-color: white;
+}
+
+.chat-header {
+    height: 68px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    flex: 0 0 60px;
+}
+
+.chat-header img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.chat-messages {
+    // flex: 1;
+    overflow-y: scroll;
+    padding: 10px;
+    height: calc(100% - 126px);
+}
+
+.chat-messages ul {
+    display: flex;
+    flex-direction: column;
+}
+
+.message {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+}
+
+.message p {
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    max-width: 80%;
+}
+
+.received p {
+    align-self: flex-start;
+}
+
+.sent p {
+    background-color: #efefef;
+    color: #000;
+}
+
+.sent {
+    align-items: flex-end;
+}
+
+.message-meta {
+    font-size: 12px;
+    color: #888;
+}
+
+.chat-form {
+    height: 58px;
+    // flex: 0 0 auto;
+    padding: 10px;
+    display: flex;
+
+}
+
+.chat-form input[type="text"] {
+    // flex: 1;
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: none;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.chat-form button {
+    width: 100px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.chat-sidebar {
+    background-color: #eee;
+    width: 300px;
+    padding: 10px;
+}
+
+.chat-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.chat-item img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.chat-item h3 {
+    margin: 0;
+    font-size: 14px;
+}
+
+.chat-item p {
+    font-size: 12px;
+    color: #888;
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}
+
+li {
+    margin: 10px 0;
+}

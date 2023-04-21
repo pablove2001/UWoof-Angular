@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -15,6 +18,7 @@ import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { FooterComponent } from './layouts/footer/footer.component';
 import { TopBarComponent } from './layouts/top-bar/top-bar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SinglePostComponent } from './pages/single-post/single-post.component';
 
 @NgModule({
   declarations: [
@@ -27,13 +31,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ProfileComponent,
     SignUpComponent,
     FooterComponent,
-    TopBarComponent
+    TopBarComponent,
+    SinglePostComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    MatCardModule,
+    MatButtonModule,
+    MatIconModule,
     FormsModule,
     ReactiveFormsModule
   ],

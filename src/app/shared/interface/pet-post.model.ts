@@ -1,4 +1,5 @@
 export interface PetPost {
+    _id: string;
     kind_animal: string;
     race?: string;
     name?: string;

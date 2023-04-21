@@ -1,0 +1,45 @@
+<div class="container">
+    <mat-card class="example-card">
+        <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>Shiba Inu</mat-card-title>
+            <mat-card-subtitle style="color: black;">{{dateDay}}/{{dateMonth}}/{{dateYear}}</mat-card-subtitle>
+        </mat-card-header>
+        <div class="image" style="background-image: url('{{post.images[0]}}')">
+        </div>
+        <mat-card-content>
+            <p *ngIf="post.name !== 'No name'"><span>Nombre:</span> {{post.name}}</p>
+            <p *ngIf="post.description !== ''"><span>Descripcion:</span> {{post.description}}</p>
+            <p *ngIf="post.age !== -1"><span>Edad:</span> {{post.age}} años</p>
+            <div class="horizontal">
+                <p><span>Especie:</span> {{post.kind_animal}}</p>
+                <p *ngIf="post.race !== 'Unknown'"><span>Raza:</span> {{post.race}}</p>
+            </div>
+            <div class="horizontal">
+                <p *ngIf="post.vaccinated !== false"><span>Vacunado:</span> Si</p>
+                <p *ngIf="post.vaccinated == false"><span>Vacunado:</span> No</p>
+                <p *ngIf="post.castrated !== false"><span>Castrado:</span> Si</p>
+                <p *ngIf="post.castrated == false"><span>Castrado:</span> No</p>
+            </div>
+            <div class="horizontal">
+                <p *ngIf="post.height_cm !== -1"><span>Altura:</span> {{post.height_cm}} cm</p>
+                <p *ngIf="post.long_cm !== -1"><span>Ancho:</span> {{post.long_cm}} cm</p>
+                <p *ngIf="post.weight_kg !== -1"><span>Peso:</span> {{post.weight_kg}} kg</p>
+            </div>
+        </mat-card-content>
+        <div class="horizontal" style="margin: 20px 0 10px 0">
+            <a routerLink="/chats">
+                <div class="iconButton"
+                    style="background-image: url('https://cdn0.iconfinder.com/data/icons/kameleon-free-pack-rounded/110/Chat-2-1024.png')">
+                </div>
+            </a>
+            <a href="">
+                <div class="iconButton"
+                    style="background-image: url('https://th.bing.com/th/id/R.f21bb6618e0e1b2e823c49efb9321f83?rik=NExPDm5VFXUqcg&riu=http%3a%2f%2fcdn.onlinewebfonts.com%2fsvg%2fimg_117226.png&ehk=LOFnRAVxrKyjTKyl%2fWvNxZNN6MLuH1sr9O7BCaZf3iw%3d&risl=&pid=ImgRaw&r=0')">
+                </div>
+            </a>
+        </div>
+
+    </mat-card>
+
+</div>
