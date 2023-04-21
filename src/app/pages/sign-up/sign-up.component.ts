@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators} from '@angular/forms';
-import { SignupService } from 'src/app/shared/services/signup.service';
+import { UserService } from 'src/app/shared/services/user.service';
 import { User } from 'src/app/shared/interface/user.model';
 import { Router } from '@angular/router';
 
@@ -27,7 +27,7 @@ export class SignUpComponent {
   password: string = '';
   birthday: Date = new Date();
 
-  constructor(formBuilder: FormBuilder, private signupService: SignupService, private router: Router){
+  constructor(formBuilder: FormBuilder, private signupService: UserService, private router: Router){
     this.SignupForm = formBuilder.group({
       name: ["", [Validators.required]],
       lastname: ["", [Validators.required]],

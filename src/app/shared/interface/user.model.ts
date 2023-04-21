@@ -4,5 +4,5 @@ export interface User {
     email: String;
     password: String;
     birthday: Date;
-    profile?: String;
+    profile_picture?: String;
 }
