@@ -14,4 +14,9 @@ export class PostService {
     const url: string = environment.apiUrl + 'pets';
     return this.httpClient.get(url);
   }
+
+  getPost(id: string) {
+    const url: string = environment.apiUrl + 'pets/' + id;
+    return this.httpClient.get(url);
+  }
 }

@@ -2,27 +2,27 @@
     <div class="scroll-x-auto">
         <div class="form-group">
             <select id="species" name="species">
-                <option value="">Select species...</option>
-                <option value="dog">Dog</option>
-                <option value="cat">Cat</option>
-                <option value="bird">Bird</option>
-                <option value="rabbit">Rabbit</option>
+                <option value="">Especie...</option>
+                <option value="dog">Perro</option>
+                <option value="cat">Gato</option>
+                <option value="bird">Pajaro</option>
+                <option value="rabbit">Conejo</option>
                 <option value="hamster">Hamster</option>
             </select>
         </div>
 
         <div class="form-group">
             <select id="vaccinated" name="vaccinated">
-                <option value="">Select vaccinated...</option>
-                <option value="yes">Yes</option>
+                <option value="">Vacunado...</option>
+                <option value="yes">Si</option>
                 <option value="no">No</option>
             </select>
         </div>
 
         <div class="">
             <select id="castrated" name="castrated">
-                <option value="">Select castrated...</option>
-                <option value="yes">Yes</option>
+                <option value="">Castrado...</option>
+                <option value="yes">Si</option>
                 <option value="no">No</option>
             </select>
         </div>
@@ -37,7 +37,7 @@
 
 <div class="gallery">
     <div *ngFor="let item of filteredPosts" class="image-container">
-        <a routerLink="/chats">
+        <a routerLink={{item._id}}>
             <div class="image" style="background-image: url('{{item.images[0]}}')">
             </div>
         </a>

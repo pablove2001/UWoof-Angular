@@ -1,0 +1,14 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="container">
+    <div class="profile-card">
+        <div class="mi-clase" style="background-image: url('{{post.images[0]}}');"></div>
+        <div class="main-container">
+            <p><span>Especie:</span> {{post.kind_animal}}</p>
+            <p *ngIf="post.race !== 'Unknown'"><span>Raza:</span> {{post.race}}</p>
+            <p *ngIf="post.name !== 'No name'"><span>Nombre:</span> {{post.name}}</p>
+            <p *ngIf="post.age !== -1"><span>Edad (Años):</span> {{post.age}}</p>
+            <p><span>Especie:</span> {{post.kind_animal}}</p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+.container {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    background: linear-gradient(135deg, #e73c7e, #23a6d5);
+}
+
+.profile-card {
+    width: 400px;
+    margin: auto;
+    background: #fff;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.5);
+    justify-content: center;
+}
+
+.mi-clase {
+    height: 400px;
+    width: 100%;
+    background-image: url('https://avatars.githubusercontent.com/u/52970365?v=4');
+    background-size: cover;
+    background-position: center;
+}
+
+.title,
+.main-container {
+    margin-top: 15px;
+    width: 100%;
+    display: inline-block;
+    font-size: 25px;
+}
