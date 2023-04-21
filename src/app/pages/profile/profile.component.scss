@@ -1,25 +1,27 @@
-.container{
+.container {
     display: flex;
-    height: 100vh;
+    // height: 100vh;
+    height: calc(100% - 55px);
     justify-content: center;
     align-items: center;
     background: linear-gradient(135deg, #e73c7e, #23a6d5);
 }
 
-.profile-card{
+.profile-card {
     width: 400px;
     margin: auto;
     background: #fff;
-    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.5);
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.5);
     text-align: center;
     justify-content: center;
 }
 
-.image-container{
+.image-container {
     position: relative;
 }
 
-.title, .main-container {
+.title,
+.main-container {
     display: inline-block;
     text-align: center;
     font-size: 25px;
