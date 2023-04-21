@@ -1,1 +1,87 @@
-<p>create-post works!</p>
+<div class="content">
+    <div class="container">
+        <div class="title">Crear Post</div>
+        <form action="#">
+            <div class="user-details">
+                <div class="input-box">
+                    <span class="details">Especie<span style="color: red; font-weight: bold;">*</span>
+                    </span>
+                    <select id="species" name="species">
+                        <option value="">Especie...</option>
+                        <option value="dog">Perro</option>
+                        <option value="cat">Gato</option>
+                        <option value="bird">Pajaro</option>
+                        <option value="rabbit">Conejo</option>
+                        <option value="hamster">Hamster</option>
+                    </select>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Raza</span>
+                    <input type="text" placeholder="Ingresa su raza">
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Nombre</span>
+                    <input type="text" placeholder="Ingresa su nombre">
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Edad</span>
+                    <input type="number" min="0" placeholder="Ingresa sus años de edad">
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Fotos</span>
+                    <div><input class="inputFile" type="file" id="inputFile1" required><span
+                            style="color: red; font-weight: bold;">*</span>
+                    </div>
+
+                    <input class="inputFile" type="file" id="inputFile2">
+                    <input class="inputFile" type="file" id="inputFile3">
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Vacunado / Castrado</span>
+                    <select id="vaccinated" name="vaccinated">
+                        <option value="">Esta vacunado...</option>
+                        <option value="yes">Si</option>
+                        <option value="no">No</option>
+                    </select>
+                    <select id="castrated" name="castrated">
+                        <option value="">Esta castrado...</option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Descripción<span style="color: red; font-weight: bold;">*</span>
+                    </span>
+                    <!-- <textarea name="description" id="description" rows="3"></textarea> -->
+                    <input type="text" placeholder="Ingresa una descripción" required>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Media de largo (cm)</span>
+                    <input type="number" min="0" placeholder="Ingresa su medida de largo">
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Media de ancho (cm)</span>
+                    <input type="number" min="0" placeholder="Ingresa su medida de ancho">
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Peso (kg)</span>
+                    <input type="number" min="0" placeholder="Ingresa su peso">
+                </div>
+            </div>
+
+            <div class="button">
+                <input type="submit" value="Crear">
+            </div>
+
+        </form>
+    </div>
+</div>
