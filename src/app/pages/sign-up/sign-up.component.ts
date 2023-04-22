@@ -33,7 +33,7 @@ export class SignUpComponent {
       lastname: ["", [Validators.required]],
       birthday: ["", [Validators.required]],
       email: ["", [Validators.required, Validators.email]],
-      password: ["", [Validators.required,Validators.pattern(/^(?=\D*\d)(?=[^a-z]*[a-z])(?=.*[$@$!%*?&])(?=[^A-Z]*[A-Z]).{2,30}$/)]]
+      password: ["", [Validators.required,Validators.pattern(/^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{5,}$/)]]//una mayuscula, un numero, un caracter especial y minimo 5 digitos.
     })
   }
 
