@@ -1,81 +1,75 @@
 <div class="content">
     <div class="container">
         <div class="title">Crear Post</div>
-        <form action="#">
+        <form [formGroup]="CreatePostForm" (submit)="createPost()">
             <div class="user-details">
                 <div class="input-box">
                     <span class="details">Especie<span style="color: red; font-weight: bold;">*</span>
                     </span>
-                    <select id="species" name="species">
+                    <select id="species" formControlName="especie" [(ngModel)]="especie">
                         <option value="">Especie...</option>
-                        <option value="dog">Perro</option>
-                        <option value="cat">Gato</option>
-                        <option value="bird">Pajaro</option>
-                        <option value="rabbit">Conejo</option>
-                        <option value="hamster">Hamster</option>
-                    </select>
-                </div>
-
-                <div class="input-box">
-                    <span class="details">Raza</span>
-                    <input type="text" placeholder="Ingresa su raza">
-                </div>
-
-                <div class="input-box">
-                    <span class="details">Nombre</span>
-                    <input type="text" placeholder="Ingresa su nombre">
-                </div>
-
-                <div class="input-box">
-                    <span class="details">Edad</span>
-                    <input type="number" min="0" placeholder="Ingresa sus años de edad">
-                </div>
-
-                <div class="input-box">
-                    <span class="details">Fotos</span>
-                    <div><input class="inputFile" type="file" id="inputFile1" required><span
-                            style="color: red; font-weight: bold;">*</span>
-                    </div>
-
-                    <input class="inputFile" type="file" id="inputFile2">
-                    <input class="inputFile" type="file" id="inputFile3">
-                </div>
-
-                <div class="input-box">
-                    <span class="details">Vacunado / Castrado</span>
-                    <select id="vaccinated" name="vaccinated">
-                        <option value="">Esta vacunado...</option>
-                        <option value="yes">Si</option>
-                        <option value="no">No</option>
-                    </select>
-                    <select id="castrated" name="castrated">
-                        <option value="">Esta castrado...</option>
-                        <option value="yes">Yes</option>
-                        <option value="no">No</option>
+                        <option value="Perro">Perro</option>
+                        <option value="Gato">Gato</option>
+                        <option value="Pajaro">Pajaro</option>
+                        <option value="Conejo">Conejo</option>
+                        <option value="Hamster">Hamster</option>
                     </select>
                 </div>
 
                 <div class="input-box">
                     <span class="details">Descripción<span style="color: red; font-weight: bold;">*</span>
                     </span>
-                    <!-- <textarea name="description" id="description" rows="3"></textarea> -->
-                    <input type="text" placeholder="Ingresa una descripción" required>
+                    <input type="text" placeholder="Ingresa una descripción" required formControlName="descripcion"
+                        [(ngModel)]="descripcion">
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Foto<span style="color: red; font-weight: bold;">*</span></span>
+                    <input formControlName="foto" [(ngModel)]="foto" type="text" placeholder="Ingresa la URL">
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Raza</span>
+                    <input formControlName="raza" [(ngModel)]="raza" type="text" placeholder="Ingresa su raza">
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Nombre</span>
+                    <input formControlName="nombre" [(ngModel)]="nombre" type="text" placeholder="Ingresa su nombre">
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Edad</span>
+                    <input formControlName="edad" [(ngModel)]="edad" type="number" min="0"
+                        placeholder="Ingresa sus años de edad">
                 </div>
 
                 <div class="input-box">
                     <span class="details">Media de largo (cm)</span>
-                    <input type="number" min="0" placeholder="Ingresa su medida de largo">
+                    <input formControlName="largo" [(ngModel)]="largo" type="number" min="0"
+                        placeholder="Ingresa su medida de largo">
                 </div>
 
                 <div class="input-box">
-                    <span class="details">Media de ancho (cm)</span>
-                    <input type="number" min="0" placeholder="Ingresa su medida de ancho">
+                    <span class="details">Media de alto (cm)</span>
+                    <input formControlName="alto" [(ngModel)]="alto" type="number" min="0"
+                        placeholder="Ingresa su medida de alto">
                 </div>
 
                 <div class="input-box">
                     <span class="details">Peso (kg)</span>
-                    <input type="number" min="0" placeholder="Ingresa su peso">
+                    <input formControlName="peso" [(ngModel)]="peso" type="number" min="0"
+                        placeholder="Ingresa su peso">
                 </div>
+
+                <div class="input-box">
+                    <span class="details">Vacunado / Castrado</span>
+                    <mat-checkbox formControlName="vacunado" [(ngModel)]="vacunado"><span style="color: black;">Esta
+                            vacunado?</span></mat-checkbox><br>
+                    <mat-checkbox formControlName="castrado" [(ngModel)]="castrado"><span style="color: black;">Esta
+                            castrado?</span></mat-checkbox>
+                </div>
+
             </div>
 
             <div class="button">
