@@ -1,1 +1,81 @@
-<p>create-post works!</p>
+<div class="content">
+    <div class="container">
+        <div class="title">Crear Post</div>
+        <form [formGroup]="CreatePostForm" (submit)="createPost()">
+            <div class="user-details">
+                <div class="input-box">
+                    <span class="details">Especie<span style="color: red; font-weight: bold;">*</span>
+                    </span>
+                    <select id="species" formControlName="especie" [(ngModel)]="especie">
+                        <option value="">Especie...</option>
+                        <option value="Perro">Perro</option>
+                        <option value="Gato">Gato</option>
+                        <option value="Pajaro">Pajaro</option>
+                        <option value="Conejo">Conejo</option>
+                        <option value="Hamster">Hamster</option>
+                    </select>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Descripción<span style="color: red; font-weight: bold;">*</span>
+                    </span>
+                    <input type="text" placeholder="Ingresa una descripción" required formControlName="descripcion"
+                        [(ngModel)]="descripcion">
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Foto<span style="color: red; font-weight: bold;">*</span></span>
+                    <input formControlName="foto" [(ngModel)]="foto" type="text" placeholder="Ingresa la URL">
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Raza</span>
+                    <input formControlName="raza" [(ngModel)]="raza" type="text" placeholder="Ingresa su raza">
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Nombre</span>
+                    <input formControlName="nombre" [(ngModel)]="nombre" type="text" placeholder="Ingresa su nombre">
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Edad</span>
+                    <input formControlName="edad" [(ngModel)]="edad" type="number" min="0"
+                        placeholder="Ingresa sus años de edad">
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Media de largo (cm)</span>
+                    <input formControlName="largo" [(ngModel)]="largo" type="number" min="0"
+                        placeholder="Ingresa su medida de largo">
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Media de alto (cm)</span>
+                    <input formControlName="alto" [(ngModel)]="alto" type="number" min="0"
+                        placeholder="Ingresa su medida de alto">
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Peso (kg)</span>
+                    <input formControlName="peso" [(ngModel)]="peso" type="number" min="0"
+                        placeholder="Ingresa su peso">
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Vacunado / Castrado</span>
+                    <mat-checkbox formControlName="vacunado" [(ngModel)]="vacunado"><span style="color: black;">Esta
+                            vacunado?</span></mat-checkbox><br>
+                    <mat-checkbox formControlName="castrado" [(ngModel)]="castrado"><span style="color: black;">Esta
+                            castrado?</span></mat-checkbox>
+                </div>
+
+            </div>
+
+            <div class="button">
+                <input type="submit" value="Crear">
+            </div>
+
+        </form>
+    </div>
+</div>
