@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { PetPost } from 'src/app/shared/interface/pet-post.model'
-import { PostService } from 'src/app/shared/services/post.service'
+import { PetPost } from 'src/app/shared/interface/pet-post.model';
+import { PostService } from 'src/app/shared/services/post.service';
+import { UserService } from 'src/app/shared/services/user.service';
+import { User } from 'src/app/shared/interface/user.model';
 
 @Component({
   selector: 'app-single-post',
@@ -21,8 +23,17 @@ export class SinglePostComponent {
     purpose: 'Error'
   };
   error: any;
+  user: User = {
+    name: 'No Encontrado',
+    last_name: '| Inicia Sesion',
+    email: '',
+    password: '',
+    birthday: new Date()
+  }
+  userId: string = 'Error';
+  userFullname = '';
 
-  constructor(private postService: PostService, private route: ActivatedRoute) { }
+  constructor(private postService: PostService, private userService: UserService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
@@ -42,6 +53,9 @@ export class SinglePostComponent {
           this.dateYear = this.post.publication_date?.toString().substring(0, 4) || '0';
           console.log(this.post.publication_date?.toString());
           console.log(this.post);
+          this.userId = this.post.user_id;
+          console.log("userId: " + this.userId);
+          this.getUser();
         },
         (error) => {
           console.log(error);
@@ -57,6 +71,19 @@ export class SinglePostComponent {
       );
     } else {
       console.log('Id Error');
+    }
+  }
+
+  getUser() {
+    if (this.userId != 'Error') {
+      console.log("get user");
+      this.userService.getUserById(this.userId).subscribe(
+        (response: any) => {
+          this.user = response;
+          this.userFullname = this.user.name + " " + this.user.last_name;
+          console.log(this.user);
+        }
+      )
     }
   }
 

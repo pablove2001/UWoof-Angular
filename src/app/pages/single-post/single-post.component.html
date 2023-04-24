@@ -1,10 +1,13 @@
 <div class="container">
     <mat-card class="example-card">
-        <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title>Shiba Inu</mat-card-title>
-            <mat-card-subtitle style="color: black;">{{dateDay}}/{{dateMonth}}/{{dateYear}}</mat-card-subtitle>
-        </mat-card-header>
+        <a href="http://localhost:4200/profile/{{userId}}"><mat-card-header>
+                <div mat-card-avatar class="example-header-image"
+                    style="background-image: url('{{user.profile_picture}}');"></div>
+                <mat-card-title>{{userFullname}}</mat-card-title>
+                <mat-card-subtitle style="color: black;">Publicado el:
+                    {{dateDay}}/{{dateMonth}}/{{dateYear}}</mat-card-subtitle>
+            </mat-card-header></a>
+
         <div class="image" style="background-image: url('{{post.images[0]}}')">
         </div>
         <mat-card-content>
@@ -33,11 +36,20 @@
                     style="background-image: url('https://cdn0.iconfinder.com/data/icons/kameleon-free-pack-rounded/110/Chat-2-1024.png')">
                 </div>
             </a>
-            <a href="">
-                <div class="iconButton"
-                    style="background-image: url('https://th.bing.com/th/id/R.f21bb6618e0e1b2e823c49efb9321f83?rik=NExPDm5VFXUqcg&riu=http%3a%2f%2fcdn.onlinewebfonts.com%2fsvg%2fimg_117226.png&ehk=LOFnRAVxrKyjTKyl%2fWvNxZNN6MLuH1sr9O7BCaZf3iw%3d&risl=&pid=ImgRaw&r=0')">
-                </div>
-            </a>
+
+            <div class="c-share">
+                <input class="c-share__input" type="checkbox" id="checkbox">
+                <label class="c-share__toggler" for="checkbox">
+                    <span class="c-share__icon"></span>
+                </label>
+
+                <ul class="c-share_options" data-title="Share">
+                    <li>Facebook</li>
+                    <li>Twitter</li>
+                    <li>Google</li>
+                    <li>Email</li>
+                </ul>
+            </div>
         </div>
 
     </mat-card>
