@@ -34,7 +34,7 @@ export class PostService {
     deleted: false
   }
 
-  constructor(private httpServicio: HttpService) {
+  constructor(private httpServicio: HttpService, private httpClient: HttpClient) {
     this.observablePetPost = new BehaviorSubject(this.petPostSelected);
   }
 
@@ -43,18 +43,16 @@ export class PostService {
     return this.httpServicio.get(url);
   }
 
-  getPost() {
-    //const url: string = environment.apiUrl + 'pets/' + id;
-    //return this.httpClient.get(url);
+  getPost(): PetPost {
     return this.petPostSelected;
   }
 
-  /*
+  
   postPost(post: PetPost) {
     const url: string = environment.apiUrl + 'pets';
-    return this.httpServicio.post(url, post);
+    return this.httpClient.post(url, post);
   }
-  */
+
 
   setPost(petPost: PetPost): void {
     this.petPostSelected = petPost;

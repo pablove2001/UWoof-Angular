@@ -45,7 +45,7 @@ export class SinglePostComponent {
 
   getPost() {
     if (this.postId != 'Error') {
-      this.postService.getPost(this.postId).subscribe(
+      this.postService.getPost().subscribe( 
         (response: any) => {
           this.post = response;
           this.dateMonth = this.post.publication_date?.toString().substring(5, 7) || '0';

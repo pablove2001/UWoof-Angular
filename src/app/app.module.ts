@@ -20,7 +20,7 @@ import { FooterComponent } from './layouts/footer/footer.component';
 import { TopBarComponent } from './layouts/top-bar/top-bar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SinglePostComponent } from './pages/single-post/single-post.component';
-import { SocialLoginModule, SocialAuthServiceConfig, GoogleLoginProvider } from '@abacritt/angularx-social-login';
+import { SocialLoginModule, SocialAuthServiceConfig, GoogleLoginProvider, GoogleSigninButtonModule } from '@abacritt/angularx-social-login';
 
 @NgModule({
   declarations: [
@@ -47,7 +47,8 @@ import { SocialLoginModule, SocialAuthServiceConfig, GoogleLoginProvider } from 
     FormsModule,
     ReactiveFormsModule,
     MatCheckboxModule,
-    SocialLoginModule
+    SocialLoginModule,
+    GoogleSigninButtonModule
   ],
   providers: [
     {

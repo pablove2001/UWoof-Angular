@@ -8,13 +8,17 @@ import { Observable } from 'rxjs';
 })
 export class HttpService {
 
-  constructor(private httpCliente: HttpClient, private tokenServicio: TokenService) { }
+  constructor(private httpClient: HttpClient, private tokenService: TokenService) { }
 
-  get(url: string){
+  get(url: string): Observable<any> {
     const headers = new HttpHeaders({
-      'Authorization': this.tokenServicio.getToken()
+      'Authorization': this.tokenService.getToken()
     });
 
-    return this.httpCliente.get(url, { headers });
+    return this.httpClient.get(url, { headers });
   }
+
+  post() {}
+
+  put() {}
 }

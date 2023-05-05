@@ -38,7 +38,7 @@ export class TopBarComponent implements OnInit {
         console.log('Usuario de google', user);
         this.loginService.googleLogin(user.idToken).subscribe(response => {
           this.tokenService.setToken(response.token);
-          this.router.navigate(['/tareas']);
+          this.router.navigate(['/posts']);
         });
       }
     })
@@ -46,7 +46,7 @@ export class TopBarComponent implements OnInit {
 
   links: any = {
     'home': '/',
-    'tareas': '/tareas'
+    'posts': '/posts'
   }
 
   cerrarSesion() {

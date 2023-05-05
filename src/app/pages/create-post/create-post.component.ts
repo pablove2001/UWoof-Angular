@@ -69,7 +69,7 @@ export class CreatePostComponent {
     if (this.especie == '' || this.foto == '' || this.descripcion == '') {
       window.alert('Faltan campos por llenar.');
     } else {
-      this.postService.postPost().subscribe((Response: any) => {
+      this.postService.postPost(this.postCreated).subscribe((Response: any) => {
         this.router.navigate(['/posts']);
         window.alert('Se creo el post');
         console.log(Response);
@@ -77,10 +77,5 @@ export class CreatePostComponent {
     }
 
     console.log(this.postCreated);
-  }
-
-  postPost(post: PetPost) {
-    const url: string = environment.apiUrl + 'pets';
-    return this.HttpService.post(url, post);
   }
 }
