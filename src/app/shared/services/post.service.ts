@@ -1,11 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 
 import { environment } from 'src/enviroments/enviroment';
 import { PetPost } from '../interface/pet-post.model';
 
 import { BehaviorSubject } from 'rxjs';
-
 import { HttpService } from './http.service';
 
 @Injectable({
@@ -34,7 +32,7 @@ export class PostService {
     deleted: false
   }
 
-  constructor(private httpServicio: HttpService, private httpClient: HttpClient) {
+  constructor(private httpServicio: HttpService) {
     this.observablePetPost = new BehaviorSubject(this.petPostSelected);
   }
 
@@ -43,19 +41,17 @@ export class PostService {
     return this.httpServicio.get(url);
   }
 
+  setPost(petPost: PetPost): void {
+    this.petPostSelected = petPost;
+    this.observablePetPost.next(petPost);
+  }
+
   getPost(): PetPost {
     return this.petPostSelected;
   }
 
-  
   postPost(post: PetPost) {
     const url: string = environment.apiUrl + 'pets';
-    return this.httpClient.post(url, post);
-  }
-
-
-  setPost(petPost: PetPost): void {
-    this.petPostSelected = petPost;
-    this.observablePetPost.next(petPost);
+    return this.httpServicio.post(url, post );
   }
 }
