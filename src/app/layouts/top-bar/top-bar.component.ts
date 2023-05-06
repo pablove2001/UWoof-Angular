@@ -34,8 +34,10 @@ export class TopBarComponent implements OnInit {
     })
 
     this.socialAuthService.authState.subscribe((user: SocialUser) => {
+      console.log('Hay cambios en el inicio de sesion');
       if(user){
-        console.log('Usuario de google', user);
+        const currentDate = new Date();
+        console.log('Usuario de google',currentDate, Date, user);
         this.loginService.googleLogin(user.idToken).subscribe(response => {
           this.tokenService.setToken(response.token);
           this.router.navigate(['/posts']);

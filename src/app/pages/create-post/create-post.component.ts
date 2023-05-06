@@ -3,8 +3,6 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { PostService } from 'src/app/shared/services/post.service';
 import { PetPost } from 'src/app/shared/interface/pet-post.model';
 import { Router } from '@angular/router';
-import { environment } from 'src/enviroments/enviroment';
-import { HttpService } from 'src/app/shared/services/http.service';
 
 @Component({
   selector: 'app-create-post',
