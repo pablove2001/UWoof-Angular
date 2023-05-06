@@ -22,6 +22,7 @@ export class LoginComponent {
   iniciarSesion() {
     this.loginService.login(this.credenciales).subscribe((data: any) => {
       // Recibimos el token
+      console.log('token que se guarda1', data.token);
       this.tokenService.setToken(data.token);
       this.router.navigate(['/posts']);
     });

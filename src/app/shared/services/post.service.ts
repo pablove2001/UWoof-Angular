@@ -52,6 +52,6 @@ export class PostService {
 
   postPost(post: PetPost) {
     const url: string = environment.apiUrl + 'pets';
-    return this.httpServicio.post(url, post );
+    return this.httpServicio.postPetPost(url, post );
   }
 }

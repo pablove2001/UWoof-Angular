@@ -13,15 +13,15 @@ export class HttpService {
 
   get(url: string): Observable<any> {
     const headers = new HttpHeaders({
-      'Authorization': this.tokenService.getToken()
+      'token': this.tokenService.getToken()
     });
 
     return this.httpClient.get(url, { headers });
   }
 
-  post(url: string, post: PetPost) {
+  postPetPost(url: string, post: PetPost) {
     const headers = new HttpHeaders({
-      'Authorization': this.tokenService.getToken()
+      'token': this.tokenService.getToken()
     });
     return this.httpClient.post(url, post, { headers });
   }

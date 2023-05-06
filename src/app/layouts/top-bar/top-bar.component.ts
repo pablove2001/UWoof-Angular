@@ -39,6 +39,7 @@ export class TopBarComponent implements OnInit {
         const currentDate = new Date();
         console.log('Usuario de google',currentDate, Date, user);
         this.loginService.googleLogin(user.idToken).subscribe(response => {
+          console.log('token que se guarda2', response.token);
           this.tokenService.setToken(response.token);
           this.router.navigate(['/posts']);
         });
