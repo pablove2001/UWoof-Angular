@@ -48,6 +48,7 @@ export class CreatePostComponent {
 
   }
 
+
   createPost() {
     this.postCreated.kind_animal = this.especie;
     this.postCreated.images.push(this.foto);
@@ -75,9 +76,4 @@ export class CreatePostComponent {
 
     console.log(this.postCreated);
   }
-
-
-
-
-
 }
