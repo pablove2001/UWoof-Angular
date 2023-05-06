@@ -1,9 +1,9 @@
 <div class="container">
     <mat-card class="example-card">
-        <a href="http://localhost:4200/profile/{{userId}}"><mat-card-header>
+        <a href="http://localhost:4200/profile/{{post.user_id}}"><mat-card-header>
                 <div mat-card-avatar class="example-header-image"
                     style="background-image: url('{{user.profile_picture}}');"></div>
-                <mat-card-title>{{userFullname}}</mat-card-title>
+                <mat-card-title>{{user.name}} {{user.last_name}}</mat-card-title>
                 <mat-card-subtitle style="color: black;">Publicado el:
                     {{dateDay}}/{{dateMonth}}/{{dateYear}}</mat-card-subtitle>
             </mat-card-header></a>

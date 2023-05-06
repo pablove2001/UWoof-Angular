@@ -49,9 +49,7 @@
 
 <div class="gallery">
     <div *ngFor="let item of filteredPosts" class="image-container">
-        <a routerLink={{item._id}}>
-            <div class="image" style="background-image: url('{{item.images[0]}}')">
+            <div (click)="setPetPost(item)" class="image" style="background-image: url('{{item.images[0]}}')">
             </div>
-        </a>
     </div>
 </div>
