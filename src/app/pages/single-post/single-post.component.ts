@@ -45,46 +45,45 @@ export class SinglePostComponent {
 
   getPost() {
     if (this.postId != 'Error') {
-      this.postService.getPost(this.postId).subscribe(
-        (response: any) => {
-          this.post = response;
-          this.dateMonth = this.post.publication_date?.toString().substring(5, 7) || '0';
-          this.dateDay = this.post.publication_date?.toString().substring(8, 10) || '0';
-          this.dateYear = this.post.publication_date?.toString().substring(0, 4) || '0';
-          console.log(this.post.publication_date?.toString());
-          console.log(this.post);
-          this.userId = this.post.user_id;
-          console.log("userId: " + this.userId);
-          this.getUser();
-        },
-        (error) => {
-          console.log(error);
-          this.error = error;
-          this.post = {
-            _id: 'Error',
-            kind_animal: 'Error',
-            images: ['https://images.clarin.com/2021/07/02/pantallazo-azul-un-error-historico___1KUNaHYjz_1256x620__1.jpg'],
-            user_id: 'Error',
-            purpose: 'Error'
-          };
-        }
-      );
-    } else {
-      console.log('Id Error');
-    }
-  }
-
-  getUser() {
-    if (this.userId != 'Error') {
-      console.log("get user");
-      this.userService.getUserById(this.userId).subscribe(
-        (response: any) => {
-          this.user = response;
-          this.userFullname = this.user.name + " " + this.user.last_name;
-          console.log(this.user);
-        }
-      )
-    }
+      this.post = this.postService.getPost();
+        console.log("get user");
+        this.userService.getUserById(this.userId).subscribe(
+          (response: any) => {
+            this.user = response;
+            this.userFullname = this.user.name + " " + this.user.last_name;
+            console.log(this.user);
+          }
+        )
+      }
+      
+      
+    //   .subscribe( 
+    //     (response: any) => {
+    //       this.post = response;
+    //       this.dateMonth = this.post.publication_date?.toString().substring(5, 7) || '0';
+    //       this.dateDay = this.post.publication_date?.toString().substring(8, 10) || '0';
+    //       this.dateYear = this.post.publication_date?.toString().substring(0, 4) || '0';
+    //       console.log(this.post.publication_date?.toString());
+    //       console.log(this.post);
+    //       this.userId = this.post.user_id;
+    //       console.log("userId: " + this.userId);
+    //       this.getUser();
+    //     },
+    //     (error: any) => {
+    //       console.log(error);
+    //       this.error = error;
+    //       this.post = {
+    //         _id: 'Error',
+    //         kind_animal: 'Error',
+    //         images: ['https://images.clarin.com/2021/07/02/pantallazo-azul-un-error-historico___1KUNaHYjz_1256x620__1.jpg'],
+    //         user_id: 'Error',
+    //         purpose: 'Error'
+    //       };
+    //     }
+    //   );
+    // } else {
+    //   console.log('Id Error');
+    // }
   }
 
 }
