@@ -4,8 +4,10 @@
                 <div mat-card-avatar class="example-header-image"
                     style="background-image: url('{{user.profile_picture}}');"></div>
                 <mat-card-title>{{user.name}} {{user.last_name}}</mat-card-title>
-                <mat-card-subtitle style="color: black;">Publicado el:
-                    {{dateDay}}/{{dateMonth}}/{{dateYear}}</mat-card-subtitle>
+                <mat-card-subtitle style="color: black;">
+                    <span *ngIf="post.purpose_achieved">Ya fue adoptado</span>
+                    <span *ngIf="!post.purpose_achieved">No ha sido adoptado</span>
+                </mat-card-subtitle>
             </mat-card-header></a>
 
         <div class="image" style="background-image: url('{{post.images[0]}}')">

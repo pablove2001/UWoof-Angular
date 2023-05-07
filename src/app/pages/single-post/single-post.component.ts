@@ -14,21 +14,30 @@ import { ViewportScroller } from '@angular/common';
 export class SinglePostComponent {
   post: PetPost;
 
-  dateDay: string = '0';
-  dateMonth: string = '0';
-  dateYear: string = '0';
-
   user: User = {
     name: 'No Encontrado',
     last_name: '',
     email: '',
     password: '',
     birthday: new Date(),
-    profile_picture: 'https://user-images.githubusercontent.com/52970365/236649830-c54ba9e3-7620-41f9-9ecb-ff3b512a558f.png'
+    profile_picture: 'https://user-images.githubusercontent.com/52970365/236649830-c54ba9e3-7620-41f9-9ecb-ff3b512a558f.png',
   }
 
-  constructor(private postService: PostService) {
+  constructor(private postService: PostService, private userService: UserService) {
     this.post = this.postService.getPost();
+  }
+
+  ngOnInit() {
+    this.getUserPost();
+  }
+
+  getUserPost() {
+    this.userService.getUserById(this.post.user_id).subscribe(
+      (response: any) => {
+        this.user = response;
+        console.log(this.user);
+      }
+    )
   }
 
 }
