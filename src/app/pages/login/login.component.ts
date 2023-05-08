@@ -20,6 +20,7 @@ export class LoginComponent {
   credenciales:  Credenciales = { email: '', password: '' };
 
   iniciarSesion() {
+    console.log(this.credenciales);
     this.loginService.login(this.credenciales).subscribe((data: any) => {
       // Recibimos el token
       console.log('token que se guarda1', data.token);

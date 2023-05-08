@@ -1,29 +1,26 @@
 <div class="content">
     <div class="container">
         <div class="title"><p id="init">Iniciar Sesión</p></div>
-        <form action="#">
+        <form (submit)="iniciarSesion()">
             <div class="user-details">
 
                 <div class="input-box">
                     <span class="details">Correo</span>
-                    <input type="email" placeholder="Ingresa tu nombre" required>
+                    <input type="email" name="email" [(ngModel)]="credenciales.email">
                 </div>
 
                 <div class="input-box">
                     <span class="details">Contraseña</span>
-                    <input type="passsword" placeholder="Ingresa tu nombre" required>
+                    <input type="password" name="password" [(ngModel)]="credenciales.password">
                 </div>
             </div>
-
             <div class="button">
-                <input type="submit" value="Entrar">
+                <button class="input">Iniciar sesion</button>
             </div>
-
             <div>
                 O inicia sesion con google
                 <asl-google-signin-button type='icon' size='medium'></asl-google-signin-button>
             </div>
-
         </form>
     </div>
 </div>
