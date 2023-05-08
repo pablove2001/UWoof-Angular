@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { PetPost } from 'src/app/shared/interface/pet-post.model'
+import { SearchFor } from 'src/app/shared/interface/search-for';
 import { PostService } from 'src/app/shared/services/post.service'
 
 @Component({
@@ -17,8 +18,11 @@ export class PostsComponent {
     this.getPosts();
   }
 
+  searchFor:  SearchFor = { species: 'all', vaccinated: 'all', castrated: 'all'};
+
   getPosts() {
-    this.postService.getPosts().subscribe((response: any) => {
+    console.log(this.searchFor);
+    this.postService.getPosts(this.searchFor).subscribe((response: any) => {
       this.posts = response;
       this.filteredPosts = this.posts;
       console.log('response:');
