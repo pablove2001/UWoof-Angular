@@ -110,64 +110,17 @@
         </div>
         <div class="chat-messages" style="overflow-y: scroll;">
             <ul>
-                <li class="message received">
-                    <p>Hi there!</p>
-                    <span class="message-meta">10:00 AM</span>
-                </li>
-                <li class="message sent">
-                    <p>Hey!</p>
-                    <span class="message-meta">10:01 AM</span>
-                </li>
-                <li class="message received">
-                    <p>How are you doing?</p>
-                    <span class="message-meta">10:02 AM</span>
-                </li>
-                <li class="message received">
-                    <p>Hi there!</p>
-                    <span class="message-meta">10:00 AM</span>
-                </li>
-                <li class="message received">
-                    <p>How are you doing?</p>
-                    <span class="message-meta">10:02 AM</span>
-                </li>
-                <li class="message received">
-                    <p>Hi there!</p>
-                    <span class="message-meta">10:00 AM</span>
-                </li>
-                <li class="message received">
-                    <p>How are you doing?</p>
-                    <span class="message-meta">10:02 AM</span>
-                </li>
-                <li class="message received">
-                    <p>Hi there!</p>
-                    <span class="message-meta">10:00 AM</span>
-                </li>
-                <li class="message sent">
-                    <p>Hey!</p>
-                    <span class="message-meta">10:01 AM</span>
-                </li>
-                <li class="message received">
-                    <p>How are you doing?</p>
-                    <span class="message-meta">10:02 AM</span>
-                </li>
-                <li class="message sent">
-                    <p>I'm good, thanks for asking.</p>
-                    <span class="message-meta">10:03 AM</span>
-                </li>
-                <li class="message received">
-                    <p>That's great to hear!</p>
-                    <span class="message-meta">10:04 AM</span>
-                </li>
-                <li class="message sent">
-                    <p>Yeah, how about you?</p>
-                    <span class="message-meta">10:05 AM</span>
-                </li>
+                <div *ngFor="let item of messages" [ngClass]="{'owned': item.owned}">
+                    <li class="message sent">
+                        {{item.message}}
+                        <span class="message-meta">10:05 AM</span>
+                    </li>
+                </div>
             </ul>
         </div>
         <div class="chat-form">
-            <input type="text" placeholder="Type your message...">
-            <button>Send</button>
+            <input type="text" [(ngModel)]="texto" placeholder="Type your message...">
+            <button (click)="sendNewMessage()">Send</button>
         </div>
     </div>
-
 </div>
