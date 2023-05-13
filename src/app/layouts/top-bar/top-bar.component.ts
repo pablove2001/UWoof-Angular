@@ -6,6 +6,7 @@ import { PostService } from 'src/app/shared/services/post.service';
 import { TokenService } from 'src/app/shared/services/token.service';
 import { LoginService } from 'src/app/shared/services/login.service';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
   selector: 'app-top-bar',
@@ -22,7 +23,8 @@ export class TopBarComponent implements OnInit {
     private tokenService: TokenService,
     private router: Router,
     private socialAuthService: SocialAuthService,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private userService: UserService
   ) {
     this.petPost = postService.getPost();
     postService.observablePetPost.subscribe((petPost: PetPost) => {
@@ -40,7 +42,9 @@ export class TopBarComponent implements OnInit {
         console.log('Usuario de google',currentDate, Date, user);
         this.loginService.googleLogin(user.idToken).subscribe(response => {
           console.log('token que se guarda2', response.token);
+          console.log('response2', response);
           this.tokenService.setToken(response.token);
+          this.userService.setUserId(response.userId);
           this.router.navigate(['/posts']);
         });
       }
