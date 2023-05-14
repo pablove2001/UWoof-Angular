@@ -22,7 +22,7 @@ export class UserService {
   }
 
   getUserById( id: string){
-    const url = "http://localhost:3000/users/" + id;
+    const url = environment.apiUrl+ "users/" + id;
     //console.log(url);
     return this.httpClient.get(url);
   }

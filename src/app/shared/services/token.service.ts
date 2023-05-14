@@ -12,8 +12,9 @@ export class TokenService {
     this.authStatus.next(this.isAuth());
   }
 
-  setToken(token: string): void {
+  setToken(token: string, userId: string): void {
     sessionStorage.setItem('token', token);
+    sessionStorage.setItem('userId', userId);
     this.authStatus.next(true);
   }
 
@@ -21,8 +22,13 @@ export class TokenService {
     return sessionStorage.getItem('token') || '';
   }
 
+  getUserId(): string {
+    return sessionStorage.getItem('userId') || '';
+  }
+
   deleteToken(): void {
     sessionStorage.removeItem('token');
+    sessionStorage.removeItem('userId');
     this.authStatus.next(false);
   }
 

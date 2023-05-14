@@ -17,6 +17,7 @@ export class TopBarComponent implements OnInit {
 
   logueado: boolean = false;
   petPost: PetPost;
+  userId: string = '';
 
   constructor(
     postService: PostService,
@@ -33,6 +34,7 @@ export class TopBarComponent implements OnInit {
 
     this.tokenService.authStatus.subscribe((status: boolean) => {
       this.logueado = status;
+      this.userId = this.tokenService.getUserId();
     })
 
     this.socialAuthService.authState.subscribe((user: SocialUser) => {
@@ -42,8 +44,9 @@ export class TopBarComponent implements OnInit {
         console.log('Usuario de google',currentDate, Date, user);
         this.loginService.googleLogin(user.idToken).subscribe(response => {
           console.log('token que se guarda2', response.token);
+          this.userId = response.userId;
           console.log('response2', response);
-          this.tokenService.setToken(response.token);
+          this.tokenService.setToken(response.token, response.userId);
           this.userService.setUserId(response.userId);
           this.router.navigate(['/posts']);
         });

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/enviroments/enviroment';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,7 @@ export class HomeComponent {
   }
 
   getPets() {
-    this.http.get('http://localhost:3000/pets').subscribe((data) => {
+    this.http.get(environment.apiUrl+'pets').subscribe((data) => {
       console.log(data);
     });
   }
