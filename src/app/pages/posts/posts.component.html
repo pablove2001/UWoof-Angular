@@ -10,11 +10,11 @@
 
 </div>
 
-<form class="form-container">
+<form class="form-container" (submit)="getPosts()">
     <div class="scroll-x-auto">
         <div class="form-group">
-            <select id="species" name="species">
-                <option value="">Especie...</option>
+            <select id="species" name="species" [(ngModel)]="searchFor.species">
+                <option value="all">Especie...</option>
                 <option value="dog">Perro</option>
                 <option value="cat">Gato</option>
                 <option value="bird">Pajaro</option>
@@ -24,16 +24,16 @@
         </div>
 
         <div class="form-group">
-            <select id="vaccinated" name="vaccinated">
-                <option value="">Vacunado...</option>
+            <select id="vaccinated" name="vaccinated" [(ngModel)]="searchFor.vaccinated">
+                <option value="all">Vacunado...</option>
                 <option value="yes">Si</option>
                 <option value="no">No</option>
             </select>
         </div>
 
         <div class="">
-            <select id="castrated" name="castrated">
-                <option value="">Castrado...</option>
+            <select id="castrated" name="castrated" [(ngModel)]="searchFor.castrated">
+                <option value="all">Castrado...</option>
                 <option value="yes">Si</option>
                 <option value="no">No</option>
             </select>
@@ -42,16 +42,14 @@
 
 
     <div class="margin-left">
-        <button type="button" id="search-button">Search</button>
+        <button id="search-button">Search</button>
     </div>
 </form>
 
 
 <div class="gallery">
     <div *ngFor="let item of filteredPosts" class="image-container">
-        <a routerLink={{item._id}}>
-            <div class="image" style="background-image: url('{{item.images[0]}}')">
+            <div (click)="setPetPost(item)" class="image" style="background-image: url('{{item.images[0]}}')">
             </div>
-        </a>
     </div>
 </div>

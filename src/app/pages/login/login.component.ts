@@ -20,9 +20,11 @@ export class LoginComponent {
   credenciales:  Credenciales = { email: '', password: '' };
 
   iniciarSesion() {
+    console.log(this.credenciales);
     this.loginService.login(this.credenciales).subscribe((data: any) => {
       // Recibimos el token
-      this.tokenService.setToken(data.token);
+      console.log('token que se guarda1', data);
+      this.tokenService.setToken(data.token, data.userId);
       this.router.navigate(['/posts']);
     });
   }
