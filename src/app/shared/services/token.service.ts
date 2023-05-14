@@ -12,17 +12,23 @@ export class TokenService {
     this.authStatus.next(this.isAuth());
   }
 
-  setToken(token: string): void {
-    localStorage.setItem('token', token);
+  setToken(token: string, userId: string): void {
+    sessionStorage.setItem('token', token);
+    sessionStorage.setItem('userId', userId);
     this.authStatus.next(true);
   }
 
   getToken(): string {
-    return localStorage.getItem('token') || '';
+    return sessionStorage.getItem('token') || '';
+  }
+
+  getUserId(): string {
+    return sessionStorage.getItem('userId') || '';
   }
 
   deleteToken(): void {
-    localStorage.removeItem('token');
+    sessionStorage.removeItem('token');
+    sessionStorage.removeItem('userId');
     this.authStatus.next(false);
   }
 

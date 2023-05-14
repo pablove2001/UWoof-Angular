@@ -5,6 +5,7 @@ import { PetPost } from '../interface/pet-post.model';
 
 import { BehaviorSubject } from 'rxjs';
 import { HttpService } from './http.service';
+import { SearchFor } from '../interface/search-for';
 
 @Injectable({
   providedIn: 'root'
@@ -36,9 +37,9 @@ export class PostService {
     this.observablePetPost = new BehaviorSubject(this.petPostSelected);
   }
 
-  getPosts() {
+  getPosts(searchFor: SearchFor) {
     const url: string = environment.apiUrl + 'pets';
-    return this.httpServicio.get(url);
+    return this.httpServicio.getPosts(url, searchFor);
   }
 
   setPost(petPost: PetPost): void {
@@ -52,6 +53,6 @@ export class PostService {
 
   postPost(post: PetPost) {
     const url: string = environment.apiUrl + 'pets';
-    return this.httpServicio.post(url, post );
+    return this.httpServicio.postPetPost(url, post );
   }
 }
