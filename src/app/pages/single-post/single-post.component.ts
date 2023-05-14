@@ -4,6 +4,7 @@ import { PetPost } from 'src/app/shared/interface/pet-post.model';
 import { PostService } from 'src/app/shared/services/post.service';
 import { UserService } from 'src/app/shared/services/user.service';
 import { User } from 'src/app/shared/interface/user.model';
+import { ViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-single-post',
@@ -11,79 +12,32 @@ import { User } from 'src/app/shared/interface/user.model';
   styleUrls: ['./single-post.component.scss']
 })
 export class SinglePostComponent {
-  postId: string = 'Error';
-  dateDay: string = '0';
-  dateMonth: string = '0';
-  dateYear: string = '0';
-  post: PetPost = {
-    _id: 'Error',
-    kind_animal: 'Error',
-    images: ['https://th.bing.com/th/id/R.e21ba7b8fc4646074e7e4e1bec8b175d?rik=O9alnujr2q6ksw&pid=ImgRaw&r=0'],
-    user_id: 'Error',
-    purpose: 'Error'
-  };
-  error: any;
+  post: PetPost;
+
   user: User = {
     name: 'No Encontrado',
-    last_name: '| Inicia Sesion',
+    last_name: '',
     email: '',
     password: '',
-    birthday: new Date()
+    birthday: new Date(),
+    profile_picture: 'https://user-images.githubusercontent.com/52970365/236649830-c54ba9e3-7620-41f9-9ecb-ff3b512a558f.png',
   }
-  userId: string = 'Error';
-  userFullname = '';
 
-  constructor(private postService: PostService, private userService: UserService, private route: ActivatedRoute) { }
+  constructor(private postService: PostService, private userService: UserService) {
+    this.post = this.postService.getPost();
+  }
 
   ngOnInit() {
-    this.route.paramMap.subscribe(params => {
-      this.postId = params.get('id') || 'Error';
-      console.log(this.postId);
-      this.getPost();
-    });
+    this.getUserPost();
   }
 
-  getPost() {
-    if (this.postId != 'Error') {
-      this.post = this.postService.getPost();
-        console.log("get user");
-        this.userService.getUserById(this.userId).subscribe(
-          (response: any) => {
-            this.user = response;
-            this.userFullname = this.user.name + " " + this.user.last_name;
-            console.log(this.user);
-          }
-        )
+  getUserPost() {
+    this.userService.getUserById(this.post.user_id).subscribe(
+      (response: any) => {
+        this.user = response;
+        console.log(this.user);
       }
-      
-      
-    //   .subscribe( 
-    //     (response: any) => {
-    //       this.post = response;
-    //       this.dateMonth = this.post.publication_date?.toString().substring(5, 7) || '0';
-    //       this.dateDay = this.post.publication_date?.toString().substring(8, 10) || '0';
-    //       this.dateYear = this.post.publication_date?.toString().substring(0, 4) || '0';
-    //       console.log(this.post.publication_date?.toString());
-    //       console.log(this.post);
-    //       this.userId = this.post.user_id;
-    //       console.log("userId: " + this.userId);
-    //       this.getUser();
-    //     },
-    //     (error: any) => {
-    //       console.log(error);
-    //       this.error = error;
-    //       this.post = {
-    //         _id: 'Error',
-    //         kind_animal: 'Error',
-    //         images: ['https://images.clarin.com/2021/07/02/pantallazo-azul-un-error-historico___1KUNaHYjz_1256x620__1.jpg'],
-    //         user_id: 'Error',
-    //         purpose: 'Error'
-    //       };
-    //     }
-    //   );
-    // } else {
-    //   console.log('Id Error');
-    // }
+    )
   }
 
 }

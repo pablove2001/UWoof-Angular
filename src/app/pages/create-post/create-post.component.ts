@@ -52,7 +52,7 @@ export class CreatePostComponent {
   createPost() {
     this.postCreated.kind_animal = this.especie;
     this.postCreated.images.push(this.foto);
-    this.postCreated.user_id = '6442dbd086e41abfbcf09858';
+    this.postCreated.user_id = '';
     this.postCreated.purpose = 'adoption';
     this.postCreated.race = this.raza;
     this.postCreated.name = this.nombre;
