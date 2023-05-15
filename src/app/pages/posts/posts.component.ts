@@ -12,7 +12,6 @@ import { PostService } from 'src/app/shared/services/post.service'
 })
 export class PostsComponent {
   posts: Array<PetPost> = [];
-  filteredPosts: Array<PetPost> = [];
 
   constructor(private postService: PostService, private router: Router) {
     this.getPosts();
@@ -24,7 +23,6 @@ export class PostsComponent {
     console.log(this.specie);
     this.postService.getPosts(this.specie).subscribe((response: any) => {
       this.posts = response;
-      this.filteredPosts = this.posts;
       console.log('this.posts:', this.posts);
     });
   }
