@@ -25,9 +25,7 @@ export class PostsComponent {
     this.postService.getPosts(this.searchFor).subscribe((response: any) => {
       this.posts = response;
       this.filteredPosts = this.posts;
-      console.log('response:');
-      console.log(response);
-      console.log(this.posts);
+      console.log('this.posts:', this.posts);
     });
   }
 

@@ -58,7 +58,7 @@ export class TopBarComponent implements OnInit {
     'posts': '/posts'
   }
 
-  cerrarSesion() {
+  logOut() {
     this.tokenService.deleteToken();
     this.router.navigate(['/login']);
   }

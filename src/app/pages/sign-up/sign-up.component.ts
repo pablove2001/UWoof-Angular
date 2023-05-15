@@ -32,7 +32,7 @@ export class SignUpComponent {
     if (this.userCreated.password == '') return window.alert('Falta ingresar su contraseña');
     if (this.userCreated.password.length < 6) return window.alert('La contraseña debe de ser de al menos 6 carateres');
 
-    if (this.userCreated.profile_picture == '') this.userCreated.profile_picture = 'https://th.bing.com/th/id/OIP.n3BKzWOcDwH5yOtN42eYKQHaHa?pid=ImgDet&rs=1';
+    if (this.userCreated.profile_picture == '') this.userCreated.profile_picture = undefined;
 
     this.signupService.postUser(this.userCreated).subscribe((response: any) => {
       this.tokenService.setToken(response.token, response.userId);
