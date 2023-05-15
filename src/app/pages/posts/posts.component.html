@@ -13,7 +13,7 @@
 <form class="form-container" (submit)="getPosts()">
     <div class="scroll-x-auto">
         <div class="form-group">
-            <select id="species" name="species" [(ngModel)]="searchFor.species">
+            <select id="species" name="species" [(ngModel)]="specie">
                 <option value="all">Especie...</option>
                 <option value="dog">Perro</option>
                 <option value="cat">Gato</option>
@@ -22,34 +22,15 @@
                 <option value="hamster">Hamster</option>
             </select>
         </div>
-
-        <div class="form-group">
-            <select id="vaccinated" name="vaccinated" [(ngModel)]="searchFor.vaccinated">
-                <option value="all">Vacunado...</option>
-                <option value="yes">Si</option>
-                <option value="no">No</option>
-            </select>
-        </div>
-
-        <div class="">
-            <select id="castrated" name="castrated" [(ngModel)]="searchFor.castrated">
-                <option value="all">Castrado...</option>
-                <option value="yes">Si</option>
-                <option value="no">No</option>
-            </select>
-        </div>
     </div>
 
-
-    <div class="margin-left">
-        <button id="search-button">Search</button>
-    </div>
+    <button id="search-button">Search</button>
 </form>
 
 
 <div class="gallery">
     <div *ngFor="let item of filteredPosts" class="image-container">
-            <div (click)="setPetPost(item)" class="image" style="background-image: url('{{item.images[0]}}')">
-            </div>
+        <div (click)="setPetPost(item)" class="image" style="background-image: url('{{item.images[0]}}')">
+        </div>
     </div>
 </div>
