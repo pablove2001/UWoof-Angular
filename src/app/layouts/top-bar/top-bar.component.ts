@@ -47,7 +47,6 @@ export class TopBarComponent implements OnInit {
           this.userId = response.userId;
           console.log('response2', response);
           this.tokenService.setToken(response.token, response.userId);
-          this.userService.setUserId(response.userId);
           this.router.navigate(['/posts']);
         });
       }

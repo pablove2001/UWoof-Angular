@@ -1,41 +1,41 @@
 <div class="content">
     <div class="container">
         <div class="title">Crear Cuenta</div>
-        <form [formGroup] = "SignupForm" (submit)="createUser()">
+        <form (submit)="createUser()">
             <div class="user-details">
                 <div class="input-box">
                     <span class="details">Nombre</span>
-                    <input type="text" placeholder="Ingresa tu nombre" required formControlName="name" [(ngModel)]="name">
+                    <input type="text" placeholder="Ingresa tu nombre" [(ngModel)]="userCreated.name" name="name">
                 </div>
 
                 <div class="input-box">
                     <span class="details">Apellido</span>
-                    <input type="text" placeholder="Ingresa tu nombre" required formControlName="lastname" [(ngModel)]="lastname">
+                    <input type="text" placeholder="Ingresa tu nombre" [(ngModel)]="userCreated.last_name" name="last_name">
                 </div>
 
                 <div class="input-box">
                     <span class="details">Cumpleaños</span>
-                    <input type="date" placeholder="Ingresa tu nombre" required formControlName="birthday" [(ngModel)]="birthday">
+                    <input type="date" placeholder="Ingresa tu nombre" [(ngModel)]="userCreated.birthday" name="birth">
                 </div>
 
                 <div class="input-box">
                     <span class="details">Foto de Perfil</span>
-                    <input type="text">
+                    <input type="text" [(ngModel)]="userCreated.profile_picture" name="profile_picture">
                 </div>
 
                 <div class="input-box">
                     <span class="details">Correo</span>
-                    <input type="email" placeholder="Ingresa tu nombre" required formControlName="email" [(ngModel)]="email">
+                    <input type="email" placeholder="Ingresa tu nombre" [(ngModel)]="userCreated.email" name="email">
                 </div>
 
                 <div class="input-box">
                     <span class="details">Contraseña</span>
-                    <input type="password" placeholder="Ingresa tu nombre" required formControlName="password" [(ngModel)]="password">
+                    <input type="password" placeholder="Ingresa tu nombre" [(ngModel)]="userCreated.password" name="password">
                 </div>
             </div>
 
             <div class="button">
-                <input type="submit" [disabled]="SignupForm.invalid">
+                <button class="input">Iniciar sesion</button>
             </div>
 
         </form>
