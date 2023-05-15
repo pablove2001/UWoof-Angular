@@ -185,3 +185,15 @@ $tundora: #464646;
         transition: 0s;
     }
 }
+
+@media only screen and (max-width: 430px) {
+    .image {
+        width: 100%;
+    }
+
+    .example-card {
+        margin: 0 10px;
+        width: 100%;
+    }
+
+}
