@@ -13,8 +13,8 @@
             <li class="nav-item"><a routerLink="posts">Posts</a></li>
             <li class="nav-item"><a routerLink="create-post">+Post</a></li>
             <li class="nav-item"><a routerLink="chats">Chats</a></li>
-            <li class="nav-item"><a routerLink="profile/{{userId}}">Profile</a></li>
             <li class="nav-item"><a (click)="logOut()" style="cursor: pointer;">Log out</a></li>
+            <li class="nav-item"><a routerLink="profile/{{userId}}">Profile</a></li>
         </ul>
         <ul *ngIf="!logueado" class="nav no-search" style="grid-template-columns: repeat(4, 1fr);">
             <li class="nav-item"><a routerLink="/">Home</a></li>
