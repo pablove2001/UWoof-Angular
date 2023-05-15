@@ -37,9 +37,9 @@ export class PostService {
     this.observablePetPost = new BehaviorSubject(this.petPostSelected);
   }
 
-  getPosts(searchFor: SearchFor) {
+  getPosts(specie: string) {
     const url: string = environment.apiUrl + 'pets';
-    return this.httpServicio.getPosts(url, searchFor);
+    return this.httpServicio.getPosts(url, specie);
   }
 
   setPost(petPost: PetPost): void {
