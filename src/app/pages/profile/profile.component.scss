@@ -28,9 +28,13 @@
     font-size: 25px;
 }
 
+.main-container {
+    padding-top: 15px;
+}
+
 .button {
     height: 45px;
-    margin: 30px 0 0 0;
+    margin: 15px 0 20px 0;
 }
 
 .button .input {
@@ -50,3 +54,52 @@
     background: linear-gradient(135deg, #23a6d5, #e73c7e);
 }
 
+.contact-card {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.contact-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.contact-name {
+    margin: 0;
+}
+
+.delete-button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    background-color: #d32f2f;
+}
+
+.delete-button {
+    width: 30px;
+    height: 30px;
+    background-image: url('https://th.bing.com/th/id/R.27299b1faed2d63a3e9512bd8cd187ad?rik=%2fVRT3CdCaWVC3w&riu=http%3a%2f%2fpluspng.com%2fimg-png%2fdelete-button-png-delete-icon-1600.png&ehk=mRIiUoExO9FPzeoYwqDk%2bfWDlxlcYGmfTbaQ2Pbwyak%3d&risl=&pid=ImgRaw&r=0');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

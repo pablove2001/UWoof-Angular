@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/shared/services/user.service';
 import { User } from 'src/app/shared/interface/user.model';
+import { PostService } from 'src/app/shared/services/post.service';
+import { PetPost } from 'src/app/shared/interface/pet-post.model';
+import { HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-profile',
@@ -10,10 +13,6 @@ import { User } from 'src/app/shared/interface/user.model';
 })
 export class ProfileComponent {
   userId: string = 'Error';
-  userAge: number = 0;
-  dateDay: string = '0';
-  dateMonth: string = '0';
-  dateYear: string = '0';
   user:User = {
     name: 'No Encontrado',
     last_name: '| Inicia Sesion',
@@ -22,29 +21,50 @@ export class ProfileComponent {
     birthday: new Date()
   }
 
-  constructor(private userService: UserService, private route: ActivatedRoute){ }
+  posts: Array<PetPost> = [];
+
+  constructor(private userService: UserService, private route: ActivatedRoute, private postService: PostService, private router: Router){ }
 
   ngOnInit(){
     this.route.paramMap.subscribe(params => {
-      console.log("hola mundo");
       this.userId = params.get('id') || 'Error';
       this.getUser();
+      this.getUserPost();
     });
   }
 
   getUser(){
     if(this.userId != 'Error'){
-      console.log("get user");
       this.userService.getUserById(this.userId).subscribe(
         (response: any) => {
           this.user = response;
-          this.dateMonth = this.user.birthday?.toString().substring(5, 7) || '0';
-          this.dateDay = this.user.birthday?.toString().substring(8, 10) || '0';
-          this.dateYear = this.user.birthday?.toString().substring(0, 4) || '0';
           console.log(this.user);
-          console.log(this.dateMonth, this.dateDay, this.dateYear);
         }
       )
     }
+  }
+
+  getUserPost(){
+    this.postService.getUserPosts(this.userId).subscribe((response: any) => {
+      this.posts = response;
+      console.log('this.posts:', this.posts);
+    });
+  }
+
+  setPetPost(petPost: PetPost) {
+    this.postService.setPost(petPost);
+    this.router.navigate(['/single-post']);
+  }
+
+  borrarPost(postId: string | undefined){
+    console.log('borrar post', postId);
+    if (postId == undefined) return console.log('id del post undefined');
+    this.postService.deletePost(postId).subscribe((response: any) => {
+      console.log('response borrarPost', response)
+      this.getUserPost();
+    }, (error: any) => {
+      // console.error('Error al borrar el post:', error);
+      this.getUserPost();
+    });
   }
 }

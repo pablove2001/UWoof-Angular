@@ -5,13 +5,10 @@
     <div class="profile-card">
         <div class="image-container">
             <img src={{user.profile_picture}} style="width: 100%">
-            <div class="title">
-                <h2>{{user.name}} {{user.last_name}}</h2>
-            </div>
         </div>
         <div class="main-container">
+          <p>{{user.name}} {{user.last_name}}</p>
             <p>{{user.email}}</p>
-            <p>Nacio: {{dateDay}}/{{dateMonth}}/{{dateYear}}</p>
 
             <div class="w3-container">
                 <div class="button">
@@ -23,15 +20,17 @@
                     <header class="w3-container w3-teal"> 
                       <span onclick="document.getElementById('id01').style.display='none'" 
                       class="w3-button w3-display-topright">&times;</span>
-                      <h2>Modal Header</h2>
+                      <h2>Publicaciones</h2>
                     </header>
                     <div class="w3-container">
-                      <p>Some text..</p>
-                      <p>Some text..</p>
+                      <div *ngFor="let item of posts" class="contact-card">
+                        <img (click)="setPetPost(item)" src="{{item.images[0]}}" alt="Imagen de contacto" class="contact-image">
+                        <div class="contact-details">
+                          <h3 class="contact-name">Especie: {{item.kind_animal}}</h3>
+                          <div (click)="borrarPost(item._id)" class="delete-button"></div>
+                        </div>
+                      </div>
                     </div>
-                    <footer class="w3-container w3-teal">
-                      <p>Modal Footer</p>
-                    </footer>
                   </div>
                 </div>
               </div>
@@ -39,19 +38,3 @@
     </div>
 </div>
 
-<div id="publications-modal" class="w3-modal">
-    <div class="w3-modal-content">
-      <header class="w3-container w3-teal"> 
-        <span onclick="document.getElementById('publications-modal').style.display='none'" 
-        class="w3-button w3-display-topright">&times;</span>
-        <h2>Modal Header</h2>
-      </header>
-      <div class="w3-container">
-        <p>Some text..</p>
-        <p>Some text..</p>
-      </div>
-      <footer class="w3-container w3-teal">
-        <p>Modal Footer</p>
-      </footer>
-    </div>
-  </div>
