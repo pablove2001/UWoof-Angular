@@ -42,7 +42,7 @@ export class TopBarComponent implements OnInit {
       if(user){
         const currentDate = new Date();
         console.log('Usuario de google',currentDate, Date, user);
-        this.loginService.googleLogin(user.idToken).subscribe(response => {
+        this.loginService.googleLogin(user).subscribe(response => {
           console.log('token que se guarda2', response.token);
           this.userId = response.userId;
           console.log('response2', response);

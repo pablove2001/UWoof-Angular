@@ -4,6 +4,7 @@ import { Credenciales } from '../interface/credenciales';
 import { environment } from 'src/enviroments/enviroment';
 
 import { Observable } from 'rxjs';
+import { SocialUser } from '@abacritt/angularx-social-login';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +17,8 @@ export class LoginService {
     return this.httpClient.post(environment.apiUrl+'login', credenciales);
   }
 
-  googleLogin(idToken: string): Observable<any> {
+  googleLogin(user: SocialUser): Observable<any> {
     const url = environment.apiUrl+'login/google';
-    return this.httpClient.post(url, {googleToken: idToken})
+    return this.httpClient.post(url, user);
   }
 }
