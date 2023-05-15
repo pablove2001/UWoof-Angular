@@ -18,16 +18,14 @@ export class PostsComponent {
     this.getPosts();
   }
 
-  searchFor:  SearchFor = { species: 'all', vaccinated: 'all', castrated: 'all'};
+  specie: string = 'all';
 
   getPosts() {
-    console.log(this.searchFor);
-    this.postService.getPosts(this.searchFor).subscribe((response: any) => {
+    console.log(this.specie);
+    this.postService.getPosts(this.specie).subscribe((response: any) => {
       this.posts = response;
       this.filteredPosts = this.posts;
-      console.log('response:');
-      console.log(response);
-      console.log(this.posts);
+      console.log('this.posts:', this.posts);
     });
   }
 

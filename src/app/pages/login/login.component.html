@@ -1,6 +1,8 @@
 <div class="content">
     <div class="container">
-        <div class="title"><p id="init">Iniciar Sesión</p></div>
+        <div class="title">
+            <p id="init">Iniciar Sesión</p>
+        </div>
         <form (submit)="iniciarSesion()">
             <div class="user-details">
 
@@ -17,10 +19,17 @@
             <div class="button">
                 <button class="input">Iniciar sesion</button>
             </div>
-            <div>
-                O inicia sesion con google
-                <asl-google-signin-button type='icon' size='medium'></asl-google-signin-button>
+
+            <div class="container2">
+                <div class="line2"></div>
+                <span>Or</span>
+                <div class="line2"></div>
             </div>
+
+            <div class="googleButton">
+                <asl-google-signin-button style="margin:auto;" type='icon' size='large' ></asl-google-signin-button>
+            </div>
+
         </form>
     </div>
 </div>

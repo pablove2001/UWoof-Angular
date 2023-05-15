@@ -12,12 +12,9 @@ export class HttpService {
 
   constructor(private httpClient: HttpClient, private tokenService: TokenService) { }
 
-  getPosts(url: string, searchFor: SearchFor): Observable<any> {
+  getPosts(url: string, specie: string): Observable<any> {
     const headers = new HttpHeaders({
-      'token': this.tokenService.getToken(),
-      'species': searchFor.species,
-      'vaccinated': searchFor.vaccinated,
-      'castrated': searchFor.castrated,
+      'specie': specie
     });
 
     return this.httpClient.get(url, { headers });
